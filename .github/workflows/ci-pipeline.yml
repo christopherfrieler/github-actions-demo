@@ -1,0 +1,13 @@
+name: CI-Pipeline
+
+on: [push]
+
+jobs:
+  build-site:
+    name: Build Site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Build
+        run: chmod +x build.sh && ./build.sh
