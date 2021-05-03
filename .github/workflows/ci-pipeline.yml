@@ -9,6 +9,12 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: build/downloads
+          key: dependencies-${{ hashFiles('dependencies.txt') }}
+          restore-keys: dependencies-
       - name: Build
         run: chmod +x build.sh && ./build.sh
       - name: Store build artifact
