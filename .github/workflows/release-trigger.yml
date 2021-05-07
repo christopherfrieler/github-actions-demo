@@ -14,5 +14,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.RELEASING_GITHUB_TOKEN }}
       - name: Tag current version
         run: git tag ${{ github.event.inputs.version }} && git push --tags
