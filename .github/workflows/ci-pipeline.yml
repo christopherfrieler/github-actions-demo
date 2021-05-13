@@ -20,7 +20,9 @@ jobs:
           key: dependencies-${{ hashFiles('dependencies.txt') }}
           restore-keys: dependencies-
       - name: Build
-        run: chmod +x build.sh && ./build.sh
+        uses: ./.github/actions/execute-script-action
+        with:
+          script: build.sh
       - name: Store build artifact
         uses: actions/upload-artifact@v2
         with:

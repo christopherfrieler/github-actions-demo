@@ -1,0 +1,13 @@
+name: 'Execute Script'
+description: 'Execute a shell script.'
+inputs:
+  script:
+    description: 'script to execute'
+    required: true
+    default: 'build.sh'
+outputs:
+  exit-code:
+    description: 'exit-code of the script'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
